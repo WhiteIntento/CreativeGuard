@@ -1,0 +1,203 @@
+package CreativeGuard.Material;
+
+import java.util.Map;
+
+import org.bukkit.Material;
+
+public enum FallingMaterial implements MaterialInterface {
+	TORCH,
+	SOUL_TORCH,
+	REDSTONE_TORCH,
+	WALL_TORCH,
+	REDSTONE_WALL_TORCH,
+	SOUL_WALL_TPRCH,
+	OAK_BUTTON,
+	SPRUCE_BUTTON,
+	BIRCH_BUTTON,
+	JUNGLE_BUTTON,
+	ACACIA_BUTTON,
+	DARK_OAK_BUTTON,
+	MANGROVE_BUTTON,
+	CRIMSON_BUTTON,
+	POLISHED_BLACKSTONE_BUTTON,
+	WARPEd_BUTTON,
+	STONE_BUTTON,
+	REDSTONE_WIRE,
+	REPEATER,
+	COMPARATOR,
+	LEVER,
+	TRIPWIRE,
+	TRIPWIRE_HOOK,
+	OAK_PRESSURE_PLATE,
+	SPRUCE_PRESSURE_PLATE,
+	BIRCH_PRESSURE_PLATE,
+	JUNGLE_PRESSURE_PLATE,
+	ACACIA_PRESSURE_PLATE,
+	DARK_OAK_PRESSURE_PLATE,
+	MANGROVE_PRESSURE_PLATE,
+	CRIMSON_PRESSURE_PLATE,
+	WARPED_PRESSURE_PLATE,
+	STONE_PRESSURE_PLATE,
+	POLISHED_BLACKSTONE_PRESSURE_PLATE,
+	HEAVY_WEIGHTED_PRESSURE_PLATE,
+	LIGHT_WEIGHTED_PRESSURE_PLATE,
+	LANTERN,
+	SOUL_LANTERN,
+	WHITE_CARPET,
+	LIGHT_GRAY_CARPET,
+	GRAY_CARPET,
+	BLACK_CARPET,
+	BROWN_CARPET,
+	RED_CARPET,
+	ORANGE_CARPET,
+	YELLOW_CARPET,
+	LIME_CARPET,
+	GREEN_CARPET,
+	CYAN_CARPET,
+	LIGHT_BLUE_CARPET,
+	BLUE_CARPET,
+	PURPLE_CARPET,
+	MAGENTA_CARPET,
+	PINK_CARPET,
+	MOSS_CARPET,
+	OAK_DOOR,
+	SPRUCE_DOOR,
+	BIRCH_DOOR,
+	JUNGLE_DOOR,
+	ACACIA_DOOR,
+	DARK_OAK_DOOR,
+	MANGROVE_DOOR,
+	CRIMSON_DOOR,
+	WARPED_DOOR,
+	IRON_DOOR,
+	OAK_SIGN,
+	SPRUCE_SIGN,
+	BIRCH_SIGN,
+	JUNGLE_SIGN,
+	ACACIA_SIGN,
+	DARK_OAK_SIGN,
+	MANGROVE_SIGN,
+	CRIMSON_SIGN,
+	WARPED_SIGN,
+	RAIL,
+	POWERED_RAIL,
+	DETECTOR_RAIL,
+	ACTIVATOR_RAIL,
+	SAND,
+	RED_SAND,
+	GRASS,
+	TALL_GRASS,
+	WITHER_ROSE,
+	MANGROVE_PROPAGULE,
+	OAK_SAPLING,
+	SPRUCE_SAPLING,
+	BIRCH_SAPLING,
+	JUNGLE_SAPLING,
+	ACACIA_SAPLING,
+	DARK_OAK_SAPLING,
+	BAMBOO_SAPLING,
+	SUGAR_CANE,
+	TWISTING_VINES,
+	RED_TULIP,
+	ORANGE_TULIP,
+	WHITE_TULIP,
+	PINK_TULIP,
+	DANDELION,
+	POPPY,
+	BLUE_ORCHID,
+	ALLIUM,
+	AZURE_BLUET,
+	OXEYE_DAISY,
+	CORNFLOWER,
+	LILY_OF_THE_VALLEY,
+	CRIMSON_ROOTS,
+	WARPED_ROOTS,
+	SUNFLOWER,
+	WHITE_BANNER,
+	LIGHT_GRAY_BANNER,
+	GRAY_BANNER,
+	BLACK_BANNER,
+	GREEN_BANNER,
+	BROWN_WALL_BANNER,
+	RED_BANNER,
+	ORANGE_BANNER,
+	YELLOW_BANNER,
+	LIME_BANNER,
+	GREEN_WALL_BANNER,
+	CYAN_BANNER,
+	LIGHT_BLUE_BANNER,
+	BLUE_BANNER,
+	PURPLE_BANNER,
+	MAGENTA_BANNER,
+	PINK_BANNER,
+	BANNER,
+	LADDER,
+	COBWEB,
+	DEAD_BUSH,
+	END_ROT,
+	FERN,
+	FLOWER_POT,
+	FLOWERRING_AZALEA,
+	LARGE_FERN,
+	CRIMSON_FUNGUS,
+	WARPED_FUNGUS,
+	SEAGRASS,
+	LILY_PAD,
+	PLAYER_HEAD,
+	ZOMBIE_WALL_HEAD,
+	CREEPER_WALL_HEAD,
+	DRAGON_WALL_HEAD,
+	SKELETON_WALL_SKULL,
+	WITHER_SKELETON_SKULL,
+	NETHER_SPROUTS,
+	BELL,
+	AMETHYST_CLUSTER,
+	END_ROD,
+	RED_MUSHROOM,
+	BROWN_MUSHROOM,
+	CHORUS_PLANT,
+	HANGING_ROOTS,
+	ROSE_BUSH,
+	SWEET_BERRIES;
+	
+	public FallingPosition[] fallingPositions;
+	protected static Map<String,MaterialInterface> map = MaterialUtils.createMap(FallingMaterial.class);
+	
+	FallingMaterial(){
+		this.fallingPositions=new FallingPosition[6];
+		int i=0;
+		for(FallingPosition p : FallingPosition.values()) {
+			this.fallingPositions[i]=p;
+			i++;
+		}
+	}
+	
+	FallingMaterial(FallingPosition[] fallingPositions){
+		this.fallingPositions=fallingPositions;
+	}
+	FallingMaterial(FallingPosition fallingPositions){
+		this.fallingPositions= new FallingPosition[1];
+		this.fallingPositions[0]=fallingPositions;
+	}
+	
+
+	
+
+	
+	public static boolean is(String material) {
+		return map.containsKey(material);
+	}
+	
+	public static boolean is(Material material) {
+		return is(material.name());
+	}
+	
+	public static FallingMaterial get(String material) {
+		return (FallingMaterial) map.get(material);
+	}
+	
+	public static FallingMaterial get(Material material) {
+		return get(material.name());
+	}
+	
+}
