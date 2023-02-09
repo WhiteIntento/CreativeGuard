@@ -76,7 +76,7 @@ permissions:
   creativeguard.place_falling.<BLOCK_NAME>:
     description: This permission allow to creative mode to place falling blocks like gravel and sand
     default: op
-  creativeguard.break.<BLOCK_NAME:
+  creativeguard.break.<BLOCK_NAME>:
     description: This permission allow to creative mode to break forbiden block
     default: op
    ```
