@@ -14,7 +14,7 @@ public class PreventUsageAllBuckets implements Listener{
 	public void onPlayerInteract(PlayerBucketEmptyEvent event) {
 		Player p = event.getPlayer();
 		if(p.getGameMode() == GameMode.CREATIVE) {
-			if(!p.hasPermission("creativeguard.admin") && !p.hasPermission("reativeguard.use_buckets")) {
+			if(!p.hasPermission("creativeguard.admin") && !p.hasPermission("creativeguard.use.buckets")) {
 				event.setCancelled(true);
 			}
 		}

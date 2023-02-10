@@ -24,6 +24,9 @@ public class BreakPlaceBlock implements Listener{
 	
 	@EventHandler
 	public void onBlockPlace(BlockPlaceEvent event) {
+		if(event.getPlayer().hasPermission("creativeguard.admin")) {
+			return;
+		}
 		Block block = event.getBlock();
 		Chunk chunk = block.getChunk();
 		Player player = event.getPlayer();
@@ -49,6 +52,9 @@ public class BreakPlaceBlock implements Listener{
 	
 	@EventHandler
 	public void onBlockBreak(BlockBreakEvent event) {
+		if(event.getPlayer().hasPermission("creativeguard.admin")) {
+			return;
+		}
 		Block block = event.getBlock();
 		Chunk chunk = block.getChunk();
 		Player player = event.getPlayer();

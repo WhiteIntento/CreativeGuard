@@ -14,7 +14,7 @@ public class PreventCreativeInteractEntity implements Listener {
 	    Entity clickedEntity = event.getRightClicked();
 	    Player p = event.getPlayer();
 	    if(p.getGameMode() == GameMode.CREATIVE) {
-	    	if(!p.hasPermission("creativeguard.admin")  && !p.hasPermission("creativeguard.entityinteract." + clickedEntity.getName())) {
+	    	if(!p.hasPermission("creativeguard.admin")  && p.hasPermission("creativeguard.prevent_entity." + clickedEntity.getName())) {
 	    		event.setCancelled(true);
 	    	}
 	    }
