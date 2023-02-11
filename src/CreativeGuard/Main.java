@@ -105,6 +105,12 @@ public class Main extends JavaPlugin{
 			 Bukkit.getServer().getPluginManager().registerEvents(new PreventCreativeFallingBlocksCheat(), this);
 		 }
 		 Bukkit.getServer().getPluginManager().registerEvents(new PreventCreateiveBreakBlocks(), this);
+		 if(this.getConfig().getBoolean("PREVENT_CREATIVE_THROW_TRIDENT")) {
+			 Bukkit.getServer().getPluginManager().registerEvents(new PreventCreativeThrowListener(), this);
+		 }
+		 if(this.getConfig().getBoolean("debug")) {
+			 Bukkit.getServer().getPluginManager().registerEvents(new DebugListeners(), this);
+		 }
 		 
 	}
 	

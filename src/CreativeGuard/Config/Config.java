@@ -146,6 +146,8 @@ public class Config {
 				"BEDROCK",
 			};
 		this.config.addDefault("PREVENT_CREATIVE_BREAK_BLOCKS", Arrays.asList(preventCreateiveBreakBlocks));
+		this.config.addDefault("PREVENT_CREATIVE_THROW_TRIDENT", true);
+		this.config.addDefault("debug", false);
 		this.config.options().copyDefaults(true);
 	}
 
