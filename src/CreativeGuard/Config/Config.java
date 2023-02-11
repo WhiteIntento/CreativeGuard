@@ -27,6 +27,27 @@ public class Config {
 		this.config.addDefault("DIFFERENT_INVENTORY", true);
 		this.config.addDefault("PREVENT_CREATIVE_MODE_ATTACK_ANOTHER_ENTITY",true);
 		this.config.addDefault("PREVENT_CREATIVE_MODE_DROP_ITEMS",true);
+		this.config.addDefault("PREVENT_CREATIVE_INTERACT_SPAWNER_EGG", true);
+		this.config.addDefault("PREVENT_DROP_MONSTERS_WHEN_GAMEMODE_KILL", false); //creativeguard.gamemode.getdrops
+		this.config.addDefault("PREVENT_GAMEMODE_DROP_IF_PLAYER_IS_KILLED", true);
+		this.config.addDefault("PREVENT_GAMEMODE_SPAWN_EGG", true);
+		this.config.addDefault("PREVENT_GAMEMODE_DROP_POTION", true);
+		this.config.addDefault("PREVENT_USAGE_SAVED_HOTBARS", true);
+		this.config.addDefault("PREVENT_CREATIVE_BUILD_IRON_GOLEMS", false); //By default is false because by default iron_block place is forbidden
+		this.config.addDefault("PREVENT_CREATIVE_BUILD_SNOW_GOLEMS", true);
+		this.config.addDefault("PREVENT_CREATIVE_USE_ARROW_INSTRUMENTS", true);
+		this.config.addDefault("PREVENT_PLACE_CUSTOM_ITEMS", true);
+		this.config.addDefault("PREVENT_USAGE_ALL_BUCKETS", true);
+		this.config.addDefault("PREVENT_CREATIVE_USAGE_ARMOR_STAND", true);
+		this.config.addDefault("PREVENT_CREATIVE_LEAD_USAGE", true);
+		this.config.addDefault("PREVENT_CREATIVE_THROW_TRIDENT", true);
+		this.config.addDefault("PREVENT_CREATIVE_SHEAR_ENTITY_USAGE", true);
+		this.config.addDefault("PREVENT_CREATIVE_PLAYER_EAT", true);
+		this.config.addDefault("PREVENT_CREATIVE_PICKUP", true);
+		this.config.addDefault("PREVENT_CREATIVE_INTERACT_ENTITY", true);
+		this.config.addDefault("PREVENT_CREATIVE_FALLING_BLOCKS_CHEAT", true);
+		this.config.addDefault("BLOCK_STORAGE_ENGINE", "BLOCK_STORAGE");
+		this.config.addDefault("debug", false);
 		List<String> list=new ArrayList<String>();
 		list.add("CHEST");
 		list.add("ENDER_CHEST");
@@ -111,20 +132,6 @@ public class Config {
 				"PAINTING",
 				};
 		this.config.addDefault("PREVENT_PLAYER_INTERACT_ITEM", Arrays.asList(playerInteract));
-		this.config.addDefault("PREVENT_CREATIVE_INTERACT_SPAWNER_EGG", true);
-		this.config.addDefault("PREVENT_DROP_MONSTERS_WHEN_GAMEMODE_KILL", false); //creativeguard.gamemode.getdrops
-		this.config.addDefault("PREVENT_GAMEMODE_DROP_IF_PLAYER_IS_KILLED", true);
-		this.config.addDefault("PREVENT_GAMEMODE_SPAWN_EGG", true);
-		this.config.addDefault("PREVENT_GAMEMODE_DROP_POTION", true);
-		this.config.addDefault("PREVENT_USAGE_SAVED_HOTBARS", true);
-		this.config.addDefault("PREVENT_CREATIVE_BUILD_IRON_GOLEMS", false); //By default is false because by default iron_block place is forbidden
-		this.config.addDefault("PREVENT_CREATIVE_BUILD_SNOW_GOLEMS", true);
-		this.config.addDefault("PREVENT_CREATIVE_USE_ARROW_INSTRUMENTS", true);
-		this.config.addDefault("PREVENT_PLACE_CUSTOM_ITEMS", true);
-		this.config.addDefault("PREVENT_USAGE_ALL_BUCKETS", true);
-		this.config.addDefault("PREVENT_CREATIVE_USAGE_ARMOR_STAND", true);
-		this.config.addDefault("BLOCK_STORAGE_ENGINE", "BLOCK_STORAGE");
-		this.config.addDefault("PREVENT_CREATIVE_LEAD_USAGE", true);
 		String[] preventInteractOnAnotherItem= {
 			"CAMPFIRE",
 			"SOUL_CAMPFIRE",
@@ -132,22 +139,15 @@ public class Config {
 			"JUKEBOX"
 		};
 		this.config.addDefault("PREVENT_INTERACT_CLICKED_ITEM", Arrays.asList(preventInteractOnAnotherItem));
-		this.config.addDefault("PREVENT_CREATIVE_SHEAR_ENTITY_USAGE", true);
-		this.config.addDefault("PREVENT_CREATIVE_PLAYER_EAT", true);
-		this.config.addDefault("PREVENT_CREATIVE_PICKUP", true);
 		String[] preventPlayerSendCommand= {
 				"example",
 				"sell",
 			};
 		this.config.addDefault("PREVENT_CREATIVE_USE_COMMANDS", Arrays.asList(preventPlayerSendCommand));
-		this.config.addDefault("PREVENT_CREATIVE_INTERACT_ENTITY", true);
-		this.config.addDefault("PREVENT_CREATIVE_FALLING_BLOCKS_CHEAT", true);
 		String[] preventCreateiveBreakBlocks= {
 				"BEDROCK",
 			};
 		this.config.addDefault("PREVENT_CREATIVE_BREAK_BLOCKS", Arrays.asList(preventCreateiveBreakBlocks));
-		this.config.addDefault("PREVENT_CREATIVE_THROW_TRIDENT", true);
-		this.config.addDefault("debug", false);
 		this.config.options().copyDefaults(true);
 	}
 
