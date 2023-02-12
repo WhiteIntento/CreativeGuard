@@ -3,9 +3,11 @@ package CreativeGuard;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import CreativeGuard.Chunk.ChunkRegister;
+import CreativeGuard.Commands.Reload;
 import CreativeGuard.Config.Config;
 import CreativeGuard.Listeners.*;
 import CreativeGuard.Player.GamemodesRegister;
@@ -28,8 +30,15 @@ public class Main extends JavaPlugin{
 		this.config.createConfigIfNotExists();
 		PlayerFileStore.initDirectory();
 		Directories.createDirectoriesIfNotExists();
+		
+		this.getCommand("reload").setExecutor(new Reload());
 		//Register Events
-		 if(this.getConfig().getBoolean("PREVENT_CREATIVE_MODE_ATTACK_ANOTHER_ENTITY")) {
+		 this.registerListeners();
+		 
+	}
+	
+	public void registerListeners() {
+		if(this.getConfig().getBoolean("PREVENT_CREATIVE_MODE_ATTACK_ANOTHER_ENTITY")) {
 			 Bukkit.getServer().getPluginManager().registerEvents(new PreventPlayerGamemodeAttack(), this);
 		 }
 		
@@ -110,14 +119,22 @@ public class Main extends JavaPlugin{
 		 if(this.getConfig().getBoolean("debug")) {
 			 Bukkit.getServer().getPluginManager().registerEvents(new DebugListeners(), this);
 		 }
-		 
+	}
+	
+	public void unregisterListeners() {
+		HandlerList.unregisterAll(this);
+	}
+	
+	public void _stopPlugin() {
+		this.unregisterListeners();
+		ChunkRegister.saveAll();
 	}
 	
 
     // Fired when plugin is disabled
     @Override
     public void onDisable() {
-    	ChunkRegister.saveAll();
+    	this._stopPlugin();
     }
     
     public static Main getPluginInstance() {
