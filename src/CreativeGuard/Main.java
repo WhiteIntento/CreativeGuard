@@ -119,6 +119,9 @@ public class Main extends JavaPlugin{
 		 if(this.getConfig().getBoolean("debug")) {
 			 Bukkit.getServer().getPluginManager().registerEvents(new DebugListeners(), this);
 		 }
+		 if(this.getConfig().getBoolean("PREVENT_CREATIVE_CHEAT_WITH_PISTON")) {
+			 Bukkit.getServer().getPluginManager().registerEvents(new PreventCreativeCheatWithPiston(), this);
+		 }
 	}
 	
 	public void unregisterListeners() {

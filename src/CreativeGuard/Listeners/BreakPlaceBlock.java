@@ -51,6 +51,8 @@ public class BreakPlaceBlock implements Listener{
 			BlockContent blockContent = ChunkRegister.getOrCreate(x, z).getOrCreateBlock(bx, bz, by);
 			blockContent.set("o", player.getUniqueId().toString());
 			blockContent.set("g", GamemodeInfo.getId(player.getGameMode()));
+		} else {
+			ChunkRegister.getOrCreate(x, z).removeBlock(bx, bz, by);
 		}
 		
 		
@@ -69,38 +71,21 @@ public class BreakPlaceBlock implements Listener{
 		int bx=block.getX();
 		int bz=block.getZ();
 		int by=block.getY();
-		if(ChunkRegister.getOrCreate(x, z) != null) {
-			
-			BlockContent blockContent = ChunkRegister.getOrCreate(x, z).getOrCreateBlock(bx, bz, by); //Use this method because is not sure if it is loaded from the file system
-			if(blockContent != null) {
-				if(checkTopIsFalling(block)) {
-					event.setCancelled(true);
-					return;
-				}
-				if(FallingMaterial.is(block.getType())==false && this.checkForFallingBlocks(block)) {
-					if(this.checkForFallingCreativeBlocks(block)) {
-						event.setCancelled(true);
-						return;
-					}
-				}
-				
-				if(blockContent.get("o") != null && blockContent.get("g")!=null) {
-					int gm = (int)blockContent.get("g");
-					if(blockContent.get("o").equals(player.getUniqueId().toString())) {
-						if(gm == 1 && GamemodeInfo.getId(player.getGameMode()) !=1) {
-							ChunkRegister.get(x, z).removeBlock(bx, bz, by);
-							event.getBlock().setType(Material.AIR);
-						}
-
-					} else {
-						if(gm == 1) {
-							ChunkRegister.get(x, z).removeBlock(bx, bz, by);
-							event.getBlock().setType(Material.AIR);
-						}
-					}
-				}
-				
+		BlockContent blockContent = ChunkRegister.getOrCreate(x, z).getOrCreateBlock(bx, bz, by); //Use this method because is not sure if it is loaded from the file system
+		if(checkTopIsFalling(block)) {
+			event.setCancelled(true);
+			return;
+		}
+		if(FallingMaterial.is(block.getType())==false && this.checkForFallingBlocks(block)) {
+			if(this.checkForFallingCreativeBlocks(block)) {
+				event.setCancelled(true);
+				return;
 			}
+		}
+		
+		if(blockContent.get("o") != null && blockContent.get("g")!=null) {
+			ChunkRegister.get(x, z).removeBlock(bx, bz, by);
+			event.getBlock().setType(Material.AIR);
 		}
 	}
 	

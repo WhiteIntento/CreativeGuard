@@ -171,6 +171,7 @@ public class Config {
 				"@SHULKER_BOX"
 			};
 		this.config.addDefault("PREVENT_CREATIVE_BREAK_BLOCKS", Arrays.asList(preventCreateiveBreakBlocks));
+		this.config.addDefault("PREVENT_CREATIVE_CHEAT_WITH_PISTON", true);
 		this.config.options().copyDefaults(true);
 	}
 
