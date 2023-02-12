@@ -163,7 +163,14 @@ public enum FallingMaterial implements MaterialInterface {
 	ITEM_FRAME,
 	GLOW_ITEM_FRAME,
 	COCOA_BEANS,
-	COCOA;
+	COCOA,
+	SEA_PICKLE,
+	SPORE_BLOSSOM,
+	WEEPING_VINES,
+	KELP,
+	CONDUIT,
+	
+	;
 	
 	public FallingPosition[] fallingPositions;
 	protected static Map<String,MaterialInterface> map = MaterialUtils.createMap(FallingMaterial.class);

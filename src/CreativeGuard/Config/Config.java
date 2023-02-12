@@ -69,6 +69,10 @@ public class Config {
 		list.add("SMITHING");
 		list.add("BLAST_FURNANCE");
 		list.add("BARREL");
+		list.add("LOOM");
+		list.add("GRINDSTONE");
+		list.add("BLAST_FURNACE");
+		list.add("DROPPER");
 		this.config.addDefault("PREVENT_OPEN_ITEM_INVENTORY", list);
 		List<String> ppi=new ArrayList<String>();
 		ppi.add("DIAMOND_BLOCK");
@@ -112,6 +116,14 @@ public class Config {
 		ppi.add("POTATOES");
 		ppi.add("FROGSPAWN");
 		ppi.add("COCAO");
+		ppi.add("BEACON");
+		ppi.add("CAKE");
+		ppi.add("MYCELIUM"); //This block transform neary blocks like it
+		ppi.add("BUDDING_AMETHYST"); //Crystals grow on this block
+		ppi.add("BOOKSHELF");
+		ppi.add("ENCHANTING_TABLE");
+		ppi.add("OBSERVER");
+		ppi.add("SCULK_SENSOR");
 		this.config.addDefault("PREVENT_PLACE_ITEM", ppi);
 		String[] playerInteract= {
 				"FLINT_AND_STEEL",
@@ -133,6 +145,7 @@ public class Config {
 				"PAINTING",
 				"ITEM_FRAME",
 				"GLOW_ITEM_FRAME",
+				"ENDER_EYE",
 				};
 		this.config.addDefault("PREVENT_PLAYER_INTERACT_ITEM", Arrays.asList(playerInteract));
 		String[] preventInteractOnAnotherItem= {
@@ -143,8 +156,14 @@ public class Config {
 		};
 		this.config.addDefault("PREVENT_INTERACT_CLICKED_ITEM", Arrays.asList(preventInteractOnAnotherItem));
 		String[] preventPlayerSendCommand= {
-				"example",
+				"ah",
+				"shop",
+				"trade",
+				"enderchest",
+				"ec",
+				"sellall inventory",
 				"sell",
+				"sellall"
 			};
 		this.config.addDefault("PREVENT_CREATIVE_USE_COMMANDS", Arrays.asList(preventPlayerSendCommand));
 		String[] preventCreateiveBreakBlocks= {
