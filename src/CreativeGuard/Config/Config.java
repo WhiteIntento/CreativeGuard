@@ -131,6 +131,8 @@ public class Config {
 				"STRING",
 				"END_CRYSTAL",
 				"PAINTING",
+				"ITEM_FRAME",
+				"GLOW_ITEM_FRAME",
 				};
 		this.config.addDefault("PREVENT_PLAYER_INTERACT_ITEM", Arrays.asList(playerInteract));
 		String[] preventInteractOnAnotherItem= {
