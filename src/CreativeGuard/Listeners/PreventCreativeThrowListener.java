@@ -18,7 +18,6 @@ public class PreventCreativeThrowListener implements Listener {
         if(event.getPlayer().getGameMode() == GameMode.CREATIVE) {
         	if(!event.getPlayer().hasPermission("creativeguard.throw.trident") && !event.getPlayer().hasPermission("creativeguard.admin")) {
         		if (item.getType().toString().equals("TRIDENT")) {
-            		event.getPlayer().sendMessage("test block trident");
                     event.setCancelled(true);
                 }
         	}

@@ -82,5 +82,5 @@ permissions:
     description: This permission allow to creative mode to break forbiden block
     default: op
   creativeguard.throw.trident:
-  	description: This permission allow to creative mode to threw trident
-  	default: op
+    description: This permission allow to creative mode to threw trident
+    default: op
