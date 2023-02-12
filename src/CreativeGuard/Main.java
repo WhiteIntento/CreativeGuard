@@ -18,7 +18,6 @@ public class Main extends JavaPlugin{
 	@Override
     public void onEnable() {
 
-
 		this._startPlugin();
     }
 	
