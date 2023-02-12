@@ -111,6 +111,7 @@ public class Config {
 		ppi.add("NETHER_WART");
 		ppi.add("POTATOES");
 		ppi.add("FROGSPAWN");
+		ppi.add("COCAO");
 		this.config.addDefault("PREVENT_PLACE_ITEM", ppi);
 		String[] playerInteract= {
 				"FLINT_AND_STEEL",

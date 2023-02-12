@@ -7,6 +7,7 @@ import org.bukkit.Material;
 public enum FallingMaterial implements MaterialInterface {
 	TORCH,
 	SOUL_TORCH,
+	SOUL_WALL_TORCH,
 	REDSTONE_TORCH,
 	WALL_TORCH,
 	REDSTONE_WALL_TORCH,
@@ -158,7 +159,11 @@ public enum FallingMaterial implements MaterialInterface {
 	CHORUS_PLANT,
 	HANGING_ROOTS,
 	ROSE_BUSH,
-	SWEET_BERRIES;
+	SWEET_BERRIES,
+	ITEM_FRAME,
+	GLOW_ITEM_FRAME,
+	COCOA_BEANS,
+	COCOA;
 	
 	public FallingPosition[] fallingPositions;
 	protected static Map<String,MaterialInterface> map = MaterialUtils.createMap(FallingMaterial.class);

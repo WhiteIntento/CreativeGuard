@@ -4,6 +4,7 @@ import org.bukkit.Chunk;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -38,8 +39,13 @@ public class BreakPlaceBlock implements Listener{
 		if(event.getPlayer().getGameMode() == GameMode.CREATIVE) {
 			//This code stop falling items placed in water
 			if(event.getBlockReplacedState().getType() == Material.WATER || event.getBlockReplacedState().getType() == Material.LAVA) {
+				if(FallingMaterial.is(block.getRelative(BlockFace.UP).getType())) {
+					event.setCancelled(true);
+					return;
+				}
 				if(FallingMaterial.is(block.getType())) {
 					event.setCancelled(true);
+					return;
 				}
 			}
 			BlockContent blockContent = ChunkRegister.getOrCreate(x, z).getOrCreateBlock(bx, bz, by);
