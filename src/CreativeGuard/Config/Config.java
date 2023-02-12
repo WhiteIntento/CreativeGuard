@@ -147,6 +147,7 @@ public class Config {
 		this.config.addDefault("PREVENT_CREATIVE_USE_COMMANDS", Arrays.asList(preventPlayerSendCommand));
 		String[] preventCreateiveBreakBlocks= {
 				"BEDROCK",
+				"@SHULKER_BOX"
 			};
 		this.config.addDefault("PREVENT_CREATIVE_BREAK_BLOCKS", Arrays.asList(preventCreateiveBreakBlocks));
 		this.config.options().copyDefaults(true);
