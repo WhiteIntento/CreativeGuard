@@ -17,7 +17,7 @@ public class Main extends JavaPlugin{
 	public static final String PLUGIN_NAME="CreativeGuard";
 	@Override
     public void onEnable() {
-
+		//test
 
 		this._startPlugin();
     }
