@@ -9,6 +9,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 
+import CreativeGuard.Material.FallingBlock;
 import CreativeGuard.Material.FallingMaterial;
 
 public class PreventCreativeFallingBlocksCheat implements Listener{
@@ -33,7 +34,7 @@ public class PreventCreativeFallingBlocksCheat implements Listener{
 		Block underBlock= world.getBlockAt(new Location(world,x,y-1,z));
 
 		if(underBlock.getType() ==  Material.AIR  || underBlock.getType() == Material.SNOW) {
-			if(FallingMaterial.is(block.getType())) {
+			if(FallingBlock.is(block.getType())) {
 				event.setCancelled(true);
 			}
 			
