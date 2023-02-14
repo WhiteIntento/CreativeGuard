@@ -9,6 +9,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 
+import CreativeGuard.Material.FallingMaterial;
+
 public class PreventCreativeFallingBlocksCheat implements Listener{
 	
 	@EventHandler
@@ -29,17 +31,10 @@ public class PreventCreativeFallingBlocksCheat implements Listener{
 		int y = block.getY();
 		World world = block.getWorld();
 		Block underBlock= world.getBlockAt(new Location(world,x,y-1,z));
-		String[] fallingMaterials = {
-				"SAND",
-				"RED_SAND",
-				"GRAVEL"
-		};
-		if(underBlock.getType() ==  Material.AIR ) {
-			for(String fm : fallingMaterials) {
-				if(fm.equals(block.getType().name())) {
-					event.setCancelled(true);
-					break;
-				}
+
+		if(underBlock.getType() ==  Material.AIR  || underBlock.getType() == Material.SNOW) {
+			if(FallingMaterial.is(block.getType())) {
+				event.setCancelled(true);
 			}
 			
 		}

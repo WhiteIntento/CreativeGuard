@@ -2,7 +2,6 @@ package CreativeGuard;
 
 
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -10,7 +9,6 @@ import CreativeGuard.Chunk.ChunkRegister;
 import CreativeGuard.Commands.Reload;
 import CreativeGuard.Config.Config;
 import CreativeGuard.Listeners.*;
-import CreativeGuard.Player.GamemodesRegister;
 import CreativeGuard.Player.PlayerFileStore;
 
 public class Main extends JavaPlugin{

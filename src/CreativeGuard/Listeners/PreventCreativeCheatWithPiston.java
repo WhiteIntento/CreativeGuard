@@ -1,6 +1,5 @@
 package CreativeGuard.Listeners;
 
-import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -9,26 +8,14 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPistonExtendEvent;
 import org.bukkit.event.block.BlockPistonRetractEvent;
-import org.bukkit.event.block.BlockPlaceEvent;
 
-import CreativeGuard.Main;
 import CreativeGuard.Chunk.ChunkRegister;
 import CreativeGuard.Material.FallingMaterial;
-import CreativeGuard.Utils.SurroundingBlocks;
-import me.nome.BlockStorage.BlockContent;
 
 public class PreventCreativeCheatWithPiston implements Listener{
 	
 	@EventHandler
 	public void onPistonExtend(BlockPistonExtendEvent event) {
-		Chunk c = event.getBlock().getChunk();
-		int cx=c.getX();
-		int xy = c.getZ();
-		Block b = event.getBlock();
-		int bx=b.getX();
-		int by=b.getY();
-		int bz=b.getZ();
-		BlockContent bc = ChunkRegister.getOrCreate(cx, xy).getOrCreateBlock(bx, bz, by);
 		if(this.checkBlockFaceBlockIsFalling(event.getDirection(), event.getBlock())) {
 			event.setCancelled(true);
 		}

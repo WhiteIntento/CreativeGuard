@@ -3,7 +3,9 @@ package CreativeGuard.Config;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.bukkit.configuration.file.FileConfiguration;
 
@@ -124,6 +126,7 @@ public class Config {
 		ppi.add("ENCHANTING_TABLE");
 		ppi.add("OBSERVER");
 		ppi.add("SCULK_SENSOR");
+		ppi.add("POWDER_SNOW");
 		this.config.addDefault("PREVENT_PLACE_ITEM", ppi);
 		String[] playerInteract= {
 				"FLINT_AND_STEEL",
@@ -172,7 +175,22 @@ public class Config {
 			};
 		this.config.addDefault("PREVENT_CREATIVE_BREAK_BLOCKS", Arrays.asList(preventCreateiveBreakBlocks));
 		this.config.addDefault("PREVENT_CREATIVE_CHEAT_WITH_PISTON", true);
+		this.config.addDefault("BLOCK_PLACE_TIME_INTERVAL_IN", "HORSE");
+		this.config.addDefault("DEFAULT_LIMIT_BLOCK", 0);
+		this.config.addDefault("DEFAULT_LIMIT_ENTITY", 0);
+		Map<String,Integer> bpie=new HashMap<String,Integer>();
+		bpie.put("MINECART", 1);
+		bpie.put("HOPPER_MINECART", 1);
+		bpie.put("CHEST_MINECART", 1);
+		bpie.put("FURNACE_MINECART", 1);
+		bpie.put("TNT_MINECART", 1);
+		this.config.addDefault("LIMIT_PLAYER_PLACE_ENTITY", bpie);
+		Map<String,Integer> lppb=new HashMap<String,Integer>();
+		lppb.put("REDSTONE_WIRE", 5);
+		this.config.addDefault("LIMIT_PLAYER_PLACE_BLOCK", lppb);
 		this.config.options().copyDefaults(true);
+		Main.getPluginInstance().saveConfig();
+		Main.getPluginInstance().reloadConfig(); //I run this method because bukkit yml have bug with get data from map if not reloaded
 	}
 
 }

@@ -7,8 +7,13 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 import CreativeGuard.Main;
+import CreativeGuard.Player.PlayerRegister;
 
-
+/**
+ * 
+ * This listener check for forbidden entity and limited entity
+ *
+ */
 
 public class PlayerInteract implements Listener {
 
@@ -23,7 +28,11 @@ public class PlayerInteract implements Listener {
 	        		(!event.getPlayer().hasPermission("creativeguard.admin") && !event.getPlayer().hasPermission("creativeguard.interact."+material)
 	        				&& !event.getPlayer().hasPermission("creativeguard.interact.*"))){
 	        	event.setCancelled(true);
+	        	return;
 	        }
+			if(!PlayerRegister.getOrCreatePlayer(event.getPlayer()).canPlaceEntity(material)) {
+				event.setCancelled(true);
+			}
 		}
     }
 	

@@ -5,7 +5,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import CreativeGuard.Player.GamemodesRegister;
+import CreativeGuard.Player.PlayerRegister;
 
 
 public class JoinQuitGamemodeInventoryRegister implements Listener {
@@ -13,11 +13,11 @@ public class JoinQuitGamemodeInventoryRegister implements Listener {
 	
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event) {
-		GamemodesRegister.registerPlayer(event.getPlayer());
+		PlayerRegister.registerPlayer(event.getPlayer());
 	}
 	
 	@EventHandler
 	public void onPlayerLeave(PlayerQuitEvent event) {
-		GamemodesRegister.removePlayer(event.getPlayer());
+		PlayerRegister.removePlayer(event.getPlayer());
 	}
 }

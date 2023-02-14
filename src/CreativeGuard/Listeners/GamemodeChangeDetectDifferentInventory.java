@@ -7,7 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerGameModeChangeEvent;
 
 import CreativeGuard.ErrorProtect;
-import CreativeGuard.Player.GamemodesRegister;
+import CreativeGuard.Player.PlayerRegister;
 
 
 public class GamemodeChangeDetectDifferentInventory implements Listener {
@@ -26,7 +26,7 @@ public class GamemodeChangeDetectDifferentInventory implements Listener {
 			}
 			p.sendMessage("Current game mode is " + currentGameMode.name());
 			p.sendMessage("New game mode is " + newGamemode.name());
-			GamemodesRegister.getPlayerGameMode(p).changeGameMode(currentGameMode, newGamemode,p);
+			PlayerRegister.getOrCreatePlayer(p).getGamemodes().changeGameMode(currentGameMode, newGamemode,p);
 		}
 		
 	}

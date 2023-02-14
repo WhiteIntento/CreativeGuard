@@ -16,6 +16,7 @@ import CreativeGuard.Chunk.ChunkRegister;
 import CreativeGuard.Material.FallingMaterial;
 import CreativeGuard.Material.FallingPosition;
 import CreativeGuard.Player.GamemodeInfo;
+import CreativeGuard.Player.PlayerRegister;
 import CreativeGuard.Utils.BlockUtil;
 import CreativeGuard.Utils.SurroundingBlocks;
 import me.nome.BlockStorage.BlockContent;
@@ -37,6 +38,9 @@ public class BreakPlaceBlock implements Listener{
 		int bz=block.getZ();
 		int by=block.getY();
 		if(event.getPlayer().getGameMode() == GameMode.CREATIVE) {
+			if(!PlayerRegister.getOrCreatePlayer(player).canPlaceBlock(event.getBlock().getType().name())) {
+				event.setCancelled(true);
+			}
 			//This code stop falling items placed in water
 			if(event.getBlockReplacedState().getType() == Material.WATER || event.getBlockReplacedState().getType() == Material.LAVA) {
 				if(FallingMaterial.is(block.getRelative(BlockFace.UP).getType())) {

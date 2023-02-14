@@ -8,6 +8,11 @@ import org.bukkit.entity.Player;
 
 import CreativeGuard.ErrorProtect;
 
+/**
+ * 
+ * @deprecated
+ *
+ */
 
 public class GamemodesRegister {
 	private static HashMap<String,Gamemodes> players=new HashMap<String, Gamemodes>();

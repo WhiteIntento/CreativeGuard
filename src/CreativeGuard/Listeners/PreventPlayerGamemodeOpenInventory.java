@@ -18,7 +18,6 @@ public class PreventPlayerGamemodeOpenInventory implements Listener {
         		event.setCancelled(true);
         	}	
         }
-        event.getPlayer().sendMessage("open inventory " + type);
     }
 
 }
