@@ -15,7 +15,7 @@ public class BlockPlayerPlace  extends PlayerPlace{
 		if(l==0) {
 			l=Main.getPluginInstance().getConfig().getInt("DEFAULT_LIMIT_BLOCK");
 		}
-		return Main.getPluginInstance().getConfig().getInt("LIMIT_PLAYER_PLACE_BLOCK."+this.material);
+		return l;
 	}
 
 }
