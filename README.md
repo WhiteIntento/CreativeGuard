@@ -1,5 +1,8 @@
 # CreativeGuard
 ```
+commands:
+  reload:
+    description: This command reload plugin. This command is dangerous if you change the DIFFERENT_INVENTORY configuration or similar
 permissions:
   creativeguard.admin:
     description: Allows the normal use of gamemode without restrictions
@@ -23,7 +26,7 @@ permissions:
     description: Allow users in creative mode to drop potions
     default: op
   creativeguard.gamemode.getdropsentity:
-    description: Allow users in creative mode to get drop from entity
+    description: Allow users in creative mode to get drop from entity (Config default is disable)
     default: op
   creativeguard.frame.item:
     description: Allow users in creative mode to set items in frame
@@ -49,7 +52,7 @@ permissions:
   creativeguard.place_custom_items:
     description: This permission allow to place custom items
     default: op
-  creativeguard.use_buckets:
+  creativeguard.use.buckets:
     description: This permission allow to use buckets and buckets with animals
     default: op
   creativeguard.use.armor_stand:
@@ -70,13 +73,19 @@ permissions:
   creativeguard.pickup:
     description: This permission allow to creative mode get droped items
     default: op
-  creativeguard.entityinteract.<ENTITY_NAME>:
-    description: This permission allow to creative mode to interact with entities
+  creativeguard.prevent_entity.<ENTITY_NAME>:
+    description: This permission prohibits creative from interacting with the entity
     default: op
   creativeguard.place_falling.<BLOCK_NAME>:
     description: This permission allow to creative mode to place falling blocks like gravel and sand
     default: op
   creativeguard.break.<BLOCK_NAME>:
     description: This permission allow to creative mode to break forbiden block
+    default: op
+  creativeguard.throw.trident:
+    description: This permission allow to creative mode to threw trident
+    default: op
+  creativeguard.reload:
+    description: This permission allow to reload plugin
     default: op
    ```
