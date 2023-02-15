@@ -1,6 +1,8 @@
 package CreativeGuard;
 
 
+import java.io.IOException;
+
 import org.bukkit.Bukkit;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -8,6 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import CreativeGuard.Chunk.ChunkRegister;
 import CreativeGuard.Commands.Reload;
 import CreativeGuard.Config.Config;
+import CreativeGuard.Config.DefineDefaultLocales;
 import CreativeGuard.Listeners.*;
 import CreativeGuard.Player.PlayerFileStore;
 
@@ -18,16 +21,22 @@ public class Main extends JavaPlugin{
 	@Override
     public void onEnable() {
 
-		this._startPlugin();
+		try {
+			this._startPlugin();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 	
-	public void _startPlugin() {
+	public void _startPlugin() throws IOException {
 		Main.plugin = this;
 		this.getLogger().info("CreativeGuard started succesful :)");
 		this.config= new Config(this.getConfig());
 		this.config.createConfigIfNotExists();
 		PlayerFileStore.initDirectory();
 		Directories.createDirectoriesIfNotExists();
+		DefineDefaultLocales.defineEnglishLocales();
 		
 		this.getCommand("reload").setExecutor(new Reload());
 		//Register Events

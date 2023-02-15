@@ -188,6 +188,7 @@ public class Config {
 		Map<String,Integer> lppb=new HashMap<String,Integer>();
 		lppb.put("REDSTONE_WIRE", 5);
 		this.config.addDefault("LIMIT_PLAYER_PLACE_BLOCK", lppb);
+		this.config.addDefault("DEFAULT_LOCALE", "en");
 		this.config.options().copyDefaults(true);
 		Main.getPluginInstance().saveConfig();
 		Main.getPluginInstance().reloadConfig(); //I run this method because bukkit yml have bug with get data from map if not reloaded

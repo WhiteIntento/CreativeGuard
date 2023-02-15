@@ -1,5 +1,7 @@
 package CreativeGuard.Listeners;
 
+import java.io.IOException;
+
 import org.bukkit.Chunk;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -18,6 +20,7 @@ import CreativeGuard.Material.FallingPosition;
 import CreativeGuard.Player.GamemodeInfo;
 import CreativeGuard.Player.PlayerRegister;
 import CreativeGuard.Utils.BlockUtil;
+import CreativeGuard.Utils.LocaleUtil;
 import CreativeGuard.Utils.SurroundingBlocks;
 import me.nome.BlockStorage.BlockContent;
 
@@ -25,7 +28,7 @@ public class BreakPlaceBlock implements Listener{
 
 	
 	@EventHandler
-	public void onBlockPlace(BlockPlaceEvent event) {
+	public void onBlockPlace(BlockPlaceEvent event) throws IOException {
 		if(event.getPlayer().hasPermission("creativeguard.admin")) {
 			return;
 		}
@@ -40,14 +43,18 @@ public class BreakPlaceBlock implements Listener{
 		if(event.getPlayer().getGameMode() == GameMode.CREATIVE) {
 			if(!PlayerRegister.getOrCreatePlayer(player).canPlaceBlock(event.getBlock().getType().name())) {
 				event.setCancelled(true);
+				player.sendMessage(LocaleUtil.get("creative_place_block_limit"));
+				return;
 			}
 			//This code stop falling items placed in water
 			if(event.getBlockReplacedState().getType() == Material.WATER || event.getBlockReplacedState().getType() == Material.LAVA) {
 				if(FallingMaterial.is(block.getRelative(BlockFace.UP).getType())) {
 					event.setCancelled(true);
+					player.sendMessage(LocaleUtil.get("creative_place_falling_item_water"));
 					return;
 				}
 				if(FallingMaterial.is(block.getType())) {
+					player.sendMessage(LocaleUtil.get("creative_place_falling_item_water"));
 					event.setCancelled(true);
 					return;
 				}
@@ -77,11 +84,13 @@ public class BreakPlaceBlock implements Listener{
 		int by=block.getY();
 		BlockContent blockContent = ChunkRegister.getOrCreate(x, z).getOrCreateBlock(bx, bz, by); //Use this method because is not sure if it is loaded from the file system
 		if(checkTopIsFalling(block)) {
+			player.sendMessage(LocaleUtil.get("creative_break_top_first"));
 			event.setCancelled(true);
 			return;
 		}
 		if(FallingMaterial.is(block.getType())==false && this.checkForFallingBlocks(block)) {
 			if(this.checkForFallingCreativeBlocks(block)) {
+				player.sendMessage(LocaleUtil.get("creative_break_falling_items"));
 				event.setCancelled(true);
 				return;
 			}

@@ -12,6 +12,8 @@ import org.bukkit.inventory.ItemStack;
 
 import CreativeGuard.Directories;
 import CreativeGuard.Chunk.ChunkRegister;
+import CreativeGuard.Config.ConfigHandler;
+import CreativeGuard.Config.Locale;
 import CreativeGuard.Material.FallingMaterial;
 import CreativeGuard.Material.MaterialInterface;
 import CreativeGuard.Material.MaterialUtils;
@@ -19,18 +21,16 @@ import CreativeGuard.Player.EntityPlayerPlace;
 import CreativeGuard.Player.Gamemodes;
 import CreativeGuard.Player.PlayerFileStore;
 import CreativeGuard.Utils.FindUtil;
+import CreativeGuard.Utils.LocaleUtil;
 import me.nome.BlockStorage.ChunkContent;
 
 
 
 public class Main {
   public static void main(String[] args) throws IOException {
-	  EntityPlayerPlace epp = new EntityPlayerPlace("MINECRART");
-	  epp.place();
-	  epp.place();
-	  epp.place();
-	  epp.place();
-	  epp.place();
-	  System.out.print(epp.canPlace());
+	  Directories.createDirectoriesIfNotExists();
+	  LocaleUtil.set("bg", "test", "cat");
+	  System.out.println(LocaleUtil.get("bg", "test"));
+	  LocaleUtil.saveLocale("bg");
   }
 }

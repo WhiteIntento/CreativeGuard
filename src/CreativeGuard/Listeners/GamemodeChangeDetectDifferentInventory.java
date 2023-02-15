@@ -8,6 +8,7 @@ import org.bukkit.event.player.PlayerGameModeChangeEvent;
 
 import CreativeGuard.ErrorProtect;
 import CreativeGuard.Player.PlayerRegister;
+import CreativeGuard.Utils.LocaleUtil;
 
 
 public class GamemodeChangeDetectDifferentInventory implements Listener {
@@ -20,7 +21,7 @@ public class GamemodeChangeDetectDifferentInventory implements Listener {
 			GameMode currentGameMode=p.getGameMode();
 			GameMode newGamemode = event.getNewGameMode();
 			if(ErrorProtect.HAS_FATAL_ERROR && newGamemode == GameMode.CREATIVE) {
-				p.sendMessage("We have a problem and you can't switch your gamemode to creative mode at the moment. Please contact the server administrator.");
+				p.sendMessage(LocaleUtil.get("fatal_error_protect"));
 				event.setCancelled(true);
 				return;
 			}
