@@ -7,6 +7,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
+import CreativeGuard.Utils.LocaleUtil;
+
 public class PreventCreativeBuildIronGolem implements Listener{
 	
 	@EventHandler
@@ -18,7 +20,7 @@ public class PreventCreativeBuildIronGolem implements Listener{
 	    				String material = event.getItem().getType().toString();
 		    			if(material.contains("PUMPKIN")) {
 		    				event.setCancelled(true);
-		    				event.getPlayer().sendMessage("Spawn on iron golem on gamemode creative is forgotten from server creator");
+		    				event.getPlayer().sendMessage(LocaleUtil.get("dont_permission_build_iron_golem"));
 		    			}
 	    			}
 	    		}
