@@ -39,8 +39,8 @@ public abstract class PlayerPlace {
 				return this.timeInSecond(miliseconds) + 1;
 			case "MINUTE":
 				return this.timeInMinute(miliseconds) + 1;
-			case "HORSE":
-				return this.timeInHorse(miliseconds) + 1;
+			case "HOUR":
+				return this.timeInHour(miliseconds) + 1;
 			case "DAY":
 				return this.timeInDay(miliseconds) + 1;
 				
@@ -54,8 +54,8 @@ public abstract class PlayerPlace {
 				return this.timeInSecond(miliseconds);
 			case "MINUTE":
 				return this.timeInMinute(miliseconds);
-			case "HORSE":
-				return this.timeInHorse(miliseconds);
+			case "HOUR":
+				return this.timeInHour(miliseconds);
 			case "DAY":
 				return this.timeInDay(miliseconds);
 				
@@ -72,12 +72,12 @@ public abstract class PlayerPlace {
 		return timeInSecond(miliseconds)/60;
 	}
 	
-	public Long timeInHorse(Long miliseconds) {
+	public Long timeInHour(Long miliseconds) {
 		return timeInMinute(miliseconds)/60;
 	}
 	
 	public Long timeInDay(Long miliseconds) {
-		return timeInHorse(miliseconds)/24;
+		return timeInHour(miliseconds)/24;
 	}
 	
 	public static String getCalculateTimeIn() {

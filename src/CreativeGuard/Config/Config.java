@@ -175,7 +175,7 @@ public class Config {
 			};
 		this.config.addDefault("PREVENT_CREATIVE_BREAK_BLOCKS", Arrays.asList(preventCreateiveBreakBlocks));
 		this.config.addDefault("PREVENT_CREATIVE_CHEAT_WITH_PISTON", true);
-		this.config.addDefault("BLOCK_PLACE_TIME_INTERVAL_IN", "HORSE");
+		this.config.addDefault("BLOCK_PLACE_TIME_INTERVAL_IN", "HOUR");
 		this.config.addDefault("DEFAULT_LIMIT_BLOCK", 0);
 		this.config.addDefault("DEFAULT_LIMIT_ENTITY", 0);
 		Map<String,Integer> bpie=new HashMap<String,Integer>();
