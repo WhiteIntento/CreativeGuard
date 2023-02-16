@@ -26,6 +26,7 @@ public class Config {
 		}
 	}
 	public void defineDefaultConfiguration() {
+		this.config.addDefault("DEFAULT_LOCALE", "en");
 		this.config.addDefault("DIFFERENT_INVENTORY", true);
 		this.config.addDefault("PREVENT_CREATIVE_MODE_ATTACK_ANOTHER_ENTITY",true);
 		this.config.addDefault("PREVENT_CREATIVE_MODE_DROP_ITEMS",true);
@@ -188,7 +189,7 @@ public class Config {
 		Map<String,Integer> lppb=new HashMap<String,Integer>();
 		lppb.put("REDSTONE_WIRE", 5);
 		this.config.addDefault("LIMIT_PLAYER_PLACE_BLOCK", lppb);
-		this.config.addDefault("DEFAULT_LOCALE", "en");
+		this.config.addDefault("MESSAGE_TITLE", "&4<&c<&7< &e&lCreative&9&lGuard&f &7>&c>&4> &a");
 		this.config.options().copyDefaults(true);
 		Main.getPluginInstance().saveConfig();
 		Main.getPluginInstance().reloadConfig(); //I run this method because bukkit yml have bug with get data from map if not reloaded

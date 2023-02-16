@@ -13,6 +13,7 @@ import CreativeGuard.Config.Config;
 import CreativeGuard.Config.DefineDefaultLocales;
 import CreativeGuard.Listeners.*;
 import CreativeGuard.Player.PlayerFileStore;
+import CreativeGuard.Utils.ColorMessage;
 
 public class Main extends JavaPlugin{
 	protected Config config;
@@ -31,7 +32,6 @@ public class Main extends JavaPlugin{
 	
 	public void _startPlugin() throws IOException {
 		Main.plugin = this;
-		this.getLogger().info("CreativeGuard started succesful :)");
 		this.config= new Config(this.getConfig());
 		this.config.createConfigIfNotExists();
 		PlayerFileStore.initDirectory();
@@ -41,7 +41,7 @@ public class Main extends JavaPlugin{
 		this.getCommand("reload").setExecutor(new Reload());
 		//Register Events
 		 this.registerListeners();
-		 
+		 this.getLogger().info(ColorMessage.getLocaleWithTitle("start_message"));
 	}
 	
 	public void registerListeners() {
@@ -67,15 +67,12 @@ public class Main extends JavaPlugin{
 		 }
 		 Bukkit.getServer().getPluginManager().registerEvents(new PreventGamemodePlaceFrameItem(), this);
 		 if(this.getConfig().getBoolean("PREVENT_DROP_MONSTERS_WHEN_GAMEMODE_KILL")==true) {
-			 this.getLogger().info("Enable entity drop on creative mode :)");
 			 Bukkit.getServer().getPluginManager().registerEvents(new PreventGamemodeEntityDrops(), this);
 		 }
 		 if(this.getConfig().getBoolean("PREVENT_GAMEMODE_DROP_IF_PLAYER_IS_KILLED")==true) {
-			 this.getLogger().info("Enable prevent game mode drop items if player has been killed. Example /kill player name :( :D :)");
 			 Bukkit.getServer().getPluginManager().registerEvents(new PreventGamemodeDeathDropItems(), this);
 		 }
 		 if(this.getConfig().getBoolean("PREVENT_GAMEMODE_SPAWN_EGG")) {
-			 this.getLogger().info("Enable PREVENT_GAMEMODE_SPAWN_EGG");
 			 Bukkit.getServer().getPluginManager().registerEvents(new PreventGamemodeSpawnEgg(), this);
 		 }
 		 if(this.getConfig().getBoolean("PREVENT_GAMEMODE_DROP_POTION")) {

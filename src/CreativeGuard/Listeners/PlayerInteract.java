@@ -9,6 +9,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import CreativeGuard.Main;
 import CreativeGuard.Player.PlayerRegister;
 import CreativeGuard.Utils.LocaleUtil;
+import CreativeGuard.Utils.PlayerUtil;
 
 /**
  * 
@@ -28,12 +29,12 @@ public class PlayerInteract implements Listener {
 	        if (Main.getPluginInstance().getConfig().getStringList("PREVENT_PLAYER_INTERACT_ITEM").contains(material) &&
 	        		(!event.getPlayer().hasPermission("creativeguard.admin") && !event.getPlayer().hasPermission("creativeguard.interact."+material)
 	        				&& !event.getPlayer().hasPermission("creativeguard.interact.*"))){
-	        	event.getPlayer().sendMessage(LocaleUtil.get("dont_permission_interact"));
+	        	PlayerUtil.sendLocaleMessage(event.getPlayer(), "dont_permission_interact");
 	        	event.setCancelled(true);
 	        	return;
 	        }
 			if(!PlayerRegister.getOrCreatePlayer(event.getPlayer()).canPlaceEntity(material)) {
-				event.getPlayer().sendMessage(LocaleUtil.get("creative_place_entity_limit"));
+				PlayerUtil.sendLocaleMessage(event.getPlayer(), "creative_place_entity_limit");
 				event.setCancelled(true);
 			}
 		}

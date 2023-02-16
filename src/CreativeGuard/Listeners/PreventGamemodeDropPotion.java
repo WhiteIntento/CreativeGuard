@@ -5,6 +5,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 
+import CreativeGuard.Utils.PlayerUtil;
+
 public class PreventGamemodeDropPotion implements Listener{
 
 	@EventHandler
@@ -15,6 +17,7 @@ public class PreventGamemodeDropPotion implements Listener{
 				String type = event.getItem().getType().name();
 				if(type.contains("_POTION")) {
 					if(!event.getPlayer().hasPermission("creativeguard.droppotion."+type) && !event.getPlayer().hasPermission("creativeguard.admin")) {
+						PlayerUtil.sendLocaleMessage(event.getPlayer(), "dont_permission_drop_potions");
 						event.setCancelled(true);
 					}
 				}

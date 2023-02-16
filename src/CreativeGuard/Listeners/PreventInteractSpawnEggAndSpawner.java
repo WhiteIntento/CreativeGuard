@@ -8,6 +8,8 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+
+import CreativeGuard.Utils.PlayerUtil;
 /**
  * This class listener prevent interact gamemode creative players to click on spawner with egg
  * 
@@ -26,6 +28,7 @@ public class PreventInteractSpawnEggAndSpawner implements Listener{
 		            	if(rcBlock.getType().name().contains("SPAWNER")) {
 			            	if(event.getItem()!=null) {
 			            		if(event.getItem().getType().name().contains("SPAWN_EGG")) {
+			            			PlayerUtil.sendLocaleMessage(player, "dont_permission_set_egg_in_spawner");
 				            		event.setCancelled(true);
 				            	}
 			            	}

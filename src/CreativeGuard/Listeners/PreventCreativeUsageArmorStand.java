@@ -10,6 +10,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 
+import CreativeGuard.Utils.PlayerUtil;
+
 public class PreventCreativeUsageArmorStand implements Listener{
 	
 	@EventHandler
@@ -21,6 +23,7 @@ public class PreventCreativeUsageArmorStand implements Listener{
 		    			!player.hasPermission("creativeguard.admin") &&
 		    			!player.hasPermission("creativeguard.use.armor_stand")
 		    	){
+	    			PlayerUtil.sendLocaleMessage(player, "dont_permission_use_armor_stand");
 		    		event.setCancelled(true);
 		    	}
 	    	}

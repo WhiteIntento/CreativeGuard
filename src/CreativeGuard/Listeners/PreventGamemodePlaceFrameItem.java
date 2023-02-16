@@ -8,6 +8,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 
+import CreativeGuard.Utils.PlayerUtil;
+
 public class PreventGamemodePlaceFrameItem implements Listener {
 	
 	@EventHandler
@@ -18,7 +20,7 @@ public class PreventGamemodePlaceFrameItem implements Listener {
 	        if(player.getGameMode() == GameMode.CREATIVE) {
 	        	if(!player.hasPermission("creativeguard.frame.item") && !player.hasPermission("creativeguard.admin")){
 		            event.setCancelled(true);
-		            player.sendMessage("You are not allowed to frame objects in creative mode");
+		            PlayerUtil.sendLocaleMessage(player, "dont_permission_place_frame");
 		        }
 	        }
 	        

@@ -7,6 +7,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerShearEntityEvent;
 
+import CreativeGuard.Utils.PlayerUtil;
+
 public class PreventCreativeShearEntity implements Listener{
 	
 	@EventHandler
@@ -14,6 +16,7 @@ public class PreventCreativeShearEntity implements Listener{
         Player p = event.getPlayer();
         if(p.getGameMode() == GameMode.CREATIVE) {
         	if(!p.hasPermission("creativeguard.use.shear_entity") && !p.hasPermission("creativeguard.admin")) {
+        		PlayerUtil.sendLocaleMessage(p, "dont_permission_to_shear_entity");
         		event.setCancelled(true);
         	}
         }

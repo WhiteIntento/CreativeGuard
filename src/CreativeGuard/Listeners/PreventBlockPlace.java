@@ -1,15 +1,13 @@
 package CreativeGuard.Listeners;
 import org.bukkit.Material;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
-import org.bukkit.event.player.PlayerBucketEmptyEvent;
 import org.bukkit.GameMode;
 
 import CreativeGuard.Main;
-import CreativeGuard.Utils.LocaleUtil;
+import CreativeGuard.Utils.PlayerUtil;
 
 public class PreventBlockPlace implements Listener{
 
@@ -20,7 +18,7 @@ public class PreventBlockPlace implements Listener{
 		Player p = event.getPlayer();
 		if(p.getGameMode() == GameMode.CREATIVE && (!p.hasPermission("creativeguard.admin") && !p.hasPermission("creativeguard.place."+material.name()) )) {
 			if(Main.getPluginInstance().getConfig().getStringList("PREVENT_PLACE_ITEM").contains(material.name())) {
-				p.sendMessage(LocaleUtil.get("dont_permission_place_block"));
+				PlayerUtil.sendLocaleMessage(p, "dont_permission_place_block");
 				event.setCancelled(true);
 			}
 		}

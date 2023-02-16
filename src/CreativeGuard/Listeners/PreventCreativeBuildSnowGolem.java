@@ -7,6 +7,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
+import CreativeGuard.Utils.PlayerUtil;
+
 public class PreventCreativeBuildSnowGolem implements Listener{
 	
 	@EventHandler
@@ -18,7 +20,7 @@ public class PreventCreativeBuildSnowGolem implements Listener{
 	    				String material = event.getItem().getType().toString();
 		    			if(material.contains("PUMPKIN")) {
 		    				event.setCancelled(true);
-		    				event.getPlayer().sendMessage("Spawn on snow_golem on gamemode creative is forgotten from server creator");
+		    				PlayerUtil.sendLocaleMessage(event.getPlayer(), "dont_permission_build_snow_golem");
 		    			}
 	    			}
 	    		}

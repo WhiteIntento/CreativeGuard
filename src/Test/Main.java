@@ -28,9 +28,7 @@ import me.nome.BlockStorage.ChunkContent;
 
 public class Main {
   public static void main(String[] args) throws IOException {
-	  Directories.createDirectoriesIfNotExists();
-	  LocaleUtil.set("bg", "test", "cat");
-	  System.out.println(LocaleUtil.get("bg", "test"));
-	  LocaleUtil.saveLocale("bg");
+	  String c="&";
+	  System.out.println(c.toCharArray()[0]);
   }
 }

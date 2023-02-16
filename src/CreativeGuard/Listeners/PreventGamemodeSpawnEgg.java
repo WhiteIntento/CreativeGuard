@@ -9,6 +9,7 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 import CreativeGuard.Main;
+import CreativeGuard.Utils.PlayerUtil;
 
 public class PreventGamemodeSpawnEgg implements Listener{
 
@@ -21,7 +22,7 @@ public class PreventGamemodeSpawnEgg implements Listener{
 				String type = event.getItem().getType().name();
 				if(type.contains("_EGG")) {
 					if(!event.getPlayer().hasPermission("creativeguard.spawnegg."+type) && !event.getPlayer().hasPermission("creativeguard.admin")) {
-					
+						PlayerUtil.sendLocaleMessage(event.getPlayer(), "dont_permission_spawn_egg");
 						event.setCancelled(true);
 					}
 				}
@@ -37,7 +38,7 @@ public class PreventGamemodeSpawnEgg implements Listener{
 	    	String type = event.getPlayer().getInventory().getItemInMainHand().getType().name();
 	    	if(type.contains("_EGG")) {
 				if(!event.getPlayer().hasPermission("creativeguard.spawnegg."+type) && !event.getPlayer().hasPermission("creativeguard.admin")) {
-				
+					PlayerUtil.sendLocaleMessage(event.getPlayer(), "dont_permission_spawn_egg");
 					event.setCancelled(true);
 				}
 			}

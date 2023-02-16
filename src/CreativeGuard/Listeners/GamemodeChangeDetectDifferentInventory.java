@@ -9,6 +9,7 @@ import org.bukkit.event.player.PlayerGameModeChangeEvent;
 import CreativeGuard.ErrorProtect;
 import CreativeGuard.Player.PlayerRegister;
 import CreativeGuard.Utils.LocaleUtil;
+import CreativeGuard.Utils.PlayerUtil;
 
 
 public class GamemodeChangeDetectDifferentInventory implements Listener {
@@ -22,11 +23,10 @@ public class GamemodeChangeDetectDifferentInventory implements Listener {
 			GameMode newGamemode = event.getNewGameMode();
 			if(ErrorProtect.HAS_FATAL_ERROR && newGamemode == GameMode.CREATIVE) {
 				p.sendMessage(LocaleUtil.get("fatal_error_protect"));
+				PlayerUtil.sendLocaleMessage(p, "fatal_error_protect");
 				event.setCancelled(true);
 				return;
 			}
-			p.sendMessage("Current game mode is " + currentGameMode.name());
-			p.sendMessage("New game mode is " + newGamemode.name());
 			PlayerRegister.getOrCreatePlayer(p).getGamemodes().changeGameMode(currentGameMode, newGamemode,p);
 		}
 		

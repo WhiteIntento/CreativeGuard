@@ -12,6 +12,7 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import CreativeGuard.Material.FallingBlock;
 import CreativeGuard.Material.FallingMaterial;
 import CreativeGuard.Utils.LocaleUtil;
+import CreativeGuard.Utils.PlayerUtil;
 
 public class PreventCreativeFallingBlocksCheat implements Listener{
 	
@@ -36,7 +37,7 @@ public class PreventCreativeFallingBlocksCheat implements Listener{
 
 		if(underBlock.getType() ==  Material.AIR  || underBlock.getType() == Material.SNOW) {
 			if(FallingBlock.is(block.getType())) {
-				event.getPlayer().sendMessage(LocaleUtil.get("protect_build_falling_block_air"));
+				PlayerUtil.sendLocaleMessage(event.getPlayer(), "protect_build_falling_block_air");
 				event.setCancelled(true);
 			}
 			

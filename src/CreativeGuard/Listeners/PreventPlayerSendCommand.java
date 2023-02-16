@@ -7,6 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
 import CreativeGuard.Main;
+import CreativeGuard.Utils.PlayerUtil;
 
 
 
@@ -23,6 +24,7 @@ public class PreventPlayerSendCommand implements Listener{
 				for(Object i : Main.getPluginInstance().getConfig().getList("PREVENT_CREATIVE_USE_COMMANDS")) {
 					String str = "/" + i.toString();
 					if(sc[0].equalsIgnoreCase(str) && command.contains(str)) {
+						PlayerUtil.sendLocaleMessage(p, "dont_permission_send_command");
 						event.setCancelled(true);
 						break;
 					}

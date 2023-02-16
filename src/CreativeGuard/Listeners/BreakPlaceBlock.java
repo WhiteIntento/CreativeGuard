@@ -21,6 +21,7 @@ import CreativeGuard.Player.GamemodeInfo;
 import CreativeGuard.Player.PlayerRegister;
 import CreativeGuard.Utils.BlockUtil;
 import CreativeGuard.Utils.LocaleUtil;
+import CreativeGuard.Utils.PlayerUtil;
 import CreativeGuard.Utils.SurroundingBlocks;
 import me.nome.BlockStorage.BlockContent;
 
@@ -43,18 +44,18 @@ public class BreakPlaceBlock implements Listener{
 		if(event.getPlayer().getGameMode() == GameMode.CREATIVE) {
 			if(!PlayerRegister.getOrCreatePlayer(player).canPlaceBlock(event.getBlock().getType().name())) {
 				event.setCancelled(true);
-				player.sendMessage(LocaleUtil.get("creative_place_block_limit"));
+				PlayerUtil.sendLocaleMessage(player, "creative_place_block_limit");
 				return;
 			}
 			//This code stop falling items placed in water
 			if(event.getBlockReplacedState().getType() == Material.WATER || event.getBlockReplacedState().getType() == Material.LAVA) {
 				if(FallingMaterial.is(block.getRelative(BlockFace.UP).getType())) {
 					event.setCancelled(true);
-					player.sendMessage(LocaleUtil.get("creative_place_falling_item_water"));
+					PlayerUtil.sendLocaleMessage(player, "creative_place_falling_item_water");
 					return;
 				}
 				if(FallingMaterial.is(block.getType())) {
-					player.sendMessage(LocaleUtil.get("creative_place_falling_item_water"));
+					PlayerUtil.sendLocaleMessage(player, "creative_place_falling_item_water");
 					event.setCancelled(true);
 					return;
 				}

@@ -5,6 +5,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
+import CreativeGuard.Utils.PlayerUtil;
+
 
 public class PreventPlayerGamemodeAttack implements Listener {
 	
@@ -14,7 +16,8 @@ public class PreventPlayerGamemodeAttack implements Listener {
 	      Player player = (Player) event.getDamager();
 	      if (player.getGameMode() == GameMode.CREATIVE && 
 	    		  (!player.hasPermission("creativeguard.admin") && !player.hasPermission("creativeguard.creative.attack")) ) {
-	        event.setCancelled(true);
+	    	  PlayerUtil.sendLocaleMessage(player, "dont_permission_creative_attack");
+	    	  event.setCancelled(true);
 	      }
 	    }
 	  }
