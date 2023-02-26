@@ -18,12 +18,12 @@ public class PreventPlayerSendCommand implements Listener{
 	public void onPlayerSendCommand(PlayerCommandPreprocessEvent event) {
 		Player p = event.getPlayer();
 		String command = event.getMessage().toLowerCase();
-		String[] sc= command.split(" ");
 		if(p.getGameMode() == GameMode.CREATIVE) {
 			if(!p.hasPermission("creativeguard.usepreventcmd."+ command) && !p.hasPermission("creativeguard.admin")) {
 				for(Object i : Main.getPluginInstance().getConfig().getList("PREVENT_CREATIVE_USE_COMMANDS")) {
 					String str = "/" + i.toString();
-					if(sc[0].equalsIgnoreCase(str) && command.contains(str)) {
+					str=str.toLowerCase();
+					if(command.contains(str)) {
 						PlayerUtil.sendLocaleMessage(p, "dont_permission_send_command");
 						event.setCancelled(true);
 						break;

@@ -85,13 +85,13 @@ public class BreakPlaceBlock implements Listener{
 		int by=block.getY();
 		BlockContent blockContent = ChunkRegister.getOrCreate(x, z).getOrCreateBlock(bx, bz, by); //Use this method because is not sure if it is loaded from the file system
 		if(checkTopIsFalling(block)) {
-			player.sendMessage(LocaleUtil.get("creative_break_top_first"));
+			PlayerUtil.sendLocaleMessage(player, "creative_break_top_first");
 			event.setCancelled(true);
 			return;
 		}
 		if(FallingMaterial.is(block.getType())==false && this.checkForFallingBlocks(block)) {
 			if(this.checkForFallingCreativeBlocks(block)) {
-				player.sendMessage(LocaleUtil.get("creative_break_falling_items"));
+				PlayerUtil.sendLocaleMessage(player, "creative_break_falling_items");
 				event.setCancelled(true);
 				return;
 			}

@@ -45,6 +45,7 @@ public class Main extends JavaPlugin{
 	}
 	
 	public void registerListeners() {
+		Bukkit.getServer().getPluginManager().registerEvents(new PreventPlayerSendCommand(), this);
 		if(this.getConfig().getBoolean("PREVENT_CREATIVE_MODE_ATTACK_ANOTHER_ENTITY")) {
 			 Bukkit.getServer().getPluginManager().registerEvents(new PreventPlayerGamemodeAttack(), this);
 		 }
@@ -59,7 +60,6 @@ public class Main extends JavaPlugin{
 		 if(this.getConfig().getBoolean("DIFFERENT_INVENTORY")) {
 			 Bukkit.getServer().getPluginManager().registerEvents(new GamemodeChangeDetectDifferentInventory(), this); 
 		 }
-		 Bukkit.getServer().getPluginManager().registerEvents(new PreventPlayerSendCommand(), this);
 		 Bukkit.getServer().getPluginManager().registerEvents(new JoinQuitGamemodeInventoryRegister(), this);
 		 Bukkit.getServer().getPluginManager().registerEvents(new PlayerInteract(), this);
 		 if(this.getConfig().getBoolean("PREVENT_CREATIVE_INTERACT_SPAWNER_EGG")==true) {
