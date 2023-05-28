@@ -150,13 +150,22 @@ public class Config {
 				"ITEM_FRAME",
 				"GLOW_ITEM_FRAME",
 				"ENDER_EYE",
+				"OAK_SIGN",
+				"SPRUCE_SIGN",
+				"BIRCH_SIGN",
+				"JUNGLE_SIGN",
+				"ACACIA_SIGN",
+				"DARK_OAK_SIGN",
+				"MANGROVE_SIGN",
+				"CRIMSON_SIGN",
+				"WARPED_SIGN"
 				};
 		this.config.addDefault("PREVENT_PLAYER_INTERACT_ITEM", Arrays.asList(playerInteract));
 		String[] preventInteractOnAnotherItem= {
 			"CAMPFIRE",
 			"SOUL_CAMPFIRE",
 			"COMPOSTER",
-			"JUKEBOX"
+			"JUKEBOX",
 		};
 		this.config.addDefault("PREVENT_INTERACT_CLICKED_ITEM", Arrays.asList(preventInteractOnAnotherItem));
 		String[] preventPlayerSendCommand= {
